@@ -27,5 +27,7 @@
 
 | 20 | Fix `+` button in CSV upload empty state (P0) | ✅ PASS — UploadDropzone converted to forwardRef; openPicker() exposed via useImperativeHandle; empty-mark div → button calling dropzoneRef.current?.openPicker(); tsc clean |
 
-Last updated: 2026-10-28T19:19
+| 21 | Wire Download Template button to PDF (P0) | ✅ PASS — PDF copied to client/public/downloads/; templateUrl() updated in api.ts; vercel.json hardened with downloads/ rewrite passthrough + Content-Disposition header; HTTP 200 verified from Vite dev server; tsc clean |
+
+Last updated: 2026-10-28T23:05
 
