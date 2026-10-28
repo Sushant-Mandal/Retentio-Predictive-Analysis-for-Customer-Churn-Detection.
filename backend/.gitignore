@@ -1,27 +1,73 @@
-﻿# Secrets
+﻿
+# ==============================
+# Secrets and environment files
+# ==============================
 .env
+.env.*
+!.env.example
 
-# Python
+# ==============================
+# Python virtual environments
+# ==============================
+.venv/
+venv/
+ENV/
+env/
+
+# ==============================
+# Python cache and compiled files
+# ==============================
 __pycache__/
 *.py[cod]
 *.pyo
 *.pyd
+*.pyc
 .Python
+
+# ==============================
+# Python packaging and build files
+# ==============================
 *.egg-info/
+.eggs/
+wheels/
 dist/
 build/
-.venv/
-venv/
-*.pyc
 
-# ML artifacts (large binaries — commit intentionally if needed)
+# ==============================
+# ML model artifacts
+# Ignore all pickle models by default
 model/*.pkl
+
+# Allow the models required for production predictions
+!model/churn_model.pkl
+!model/preprocessor.pkl
+
+# ==============================
+# Training data and generated outputs
+# ==============================
 train/data/*.csv
 
-# OS
+# ==============================
+# Logs and temporary files
+# ==============================
+*.log
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# ==============================
+# Operating system files
+# ==============================
 .DS_Store
 Thumbs.db
+desktop.ini
 
-# IDE
+# ==============================
+# IDE and editor settings
+# ==============================
 .vscode/
 .idea/
+*.swp
+*.swo
