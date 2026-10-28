@@ -15,6 +15,7 @@ from __future__ import annotations
 from datetime import datetime, timezone
 from typing import List, Optional
 
+from bson import ObjectId
 from db import get_db
 
 
@@ -150,16 +151,32 @@ async def get_saved(user_id: str, limit: int = 50) -> List[dict]:
     return [_row(doc) async for doc in cursor]
 
 
-async def search_customers(user_id: str, query: str, limit: int = 50) -> List[dict]:
+async def search_customers(
+    user_id: str,
+    query: str = "",
+    status: Optional[str] = None,
+    limit: int = 100,
+) -> List[dict]:
     db = get_db()
-    regex = {"$regex": query, "$options": "i"}
-    cursor = db.customers.find(
-        {
-            "user_id": user_id,
-            "$or": [{"name": regex}, {"customer_id": regex}],
-        }
-    ).limit(limit)
+    filter_query: dict = {"user_id": user_id}
+
+    clean_q = query.strip()
+    if clean_q:
+        regex = {"$regex": clean_q, "$options": "i"}
+        filter_query["$or"] = [{"name": regex}, {"customer_id": regex}]
+
+    if status and status.lower() != "all":
+        st = status.lower()
+        if st in ("at-risk", "at risk", "at_risk"):
+            filter_query["status"] = "At Risk"
+        elif st in ("saved", "recovered"):
+            filter_query["status"] = "Saved"
+        elif st in ("healthy",):
+            filter_query["status"] = "Healthy"
+
+    cursor = db.customers.find(filter_query).sort("current_score", -1).limit(limit)
     return [_row(doc) async for doc in cursor]
+
 
 
 async def get_customer_detail(user_id: str, customer_id: str) -> Optional[dict]:
@@ -209,6 +226,16 @@ async def get_dashboard_trend(user_id: str) -> List[dict]:
     across all customers for this user.
     """
     db = get_db()
+
+    # Retrieve user's configured benchmark (default to 78)
+    benchmark = 78
+    try:
+        user = await db.users.find_one({"_id": ObjectId(user_id)})
+        if user and "benchmark" in user:
+            benchmark = user["benchmark"]
+    except Exception:
+        pass
+
     pipeline = [
         {"$match": {"user_id": user_id}},
         {"$unwind": "$history"},
@@ -218,7 +245,7 @@ async def get_dashboard_trend(user_id: str) -> List[dict]:
                 "avg_score": {"$avg": "$history.score"},
                 "at_risk_count": {
                     "$sum": {
-                        "$cond": [{"$gte": ["$history.score", 78]}, 1, 0]
+                        "$cond": [{"$gte": ["$history.score", benchmark]}, 1, 0]
                     }
                 },
             }

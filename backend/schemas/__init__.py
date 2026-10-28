@@ -32,7 +32,8 @@ class ProfileUpdate(BaseModel):
 
 
 class BenchmarkUpdate(BaseModel):
-    benchmark: int = Field(..., ge=0, le=100)
+    benchmark: int = Field(..., ge=10, le=100)
+
 
 
 # ── Response models ─────────────────────────────────────────────────────────

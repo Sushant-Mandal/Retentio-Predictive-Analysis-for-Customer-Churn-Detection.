@@ -38,16 +38,18 @@ async def saved(current_user: dict = Depends(get_current_user)):
 @router.get("/search")
 async def search(
     q: str = Query("", min_length=0),
+    status: str | None = Query(None),
     current_user: dict = Depends(get_current_user),
 ):
-    """Search customers by name or ID."""
+    """Search customers by name or ID, optionally filtered by status."""
     user_id = current_user["_id"]
-    if not q.strip():
-        # Return all at-risk by default when no query
+    if not q.strip() and not status:
+        # Default: return all at-risk when no query and no status specified
         rows = await get_at_risk(user_id)
     else:
-        rows = await search_customers(user_id, q)
+        rows = await search_customers(user_id, q, status=status)
     return {"customers": rows}
+
 
 
 @router.get("/{customer_id}")

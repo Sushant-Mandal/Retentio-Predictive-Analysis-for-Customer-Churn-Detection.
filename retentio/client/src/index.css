@@ -496,3 +496,1427 @@
     padding: 20px 16px;
   }
 }
+
+/* ── Enhanced Dashboard Styles (Trend Chart, Donut Legend, Empty States) ── */
+.legend {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  font-size: 13px;
+  color: var(--muted);
+  min-width: 220px;
+  flex: 1;
+}
+
+.legend span {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  white-space: nowrap;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.legend b {
+  color: #fff;
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  margin-left: auto;
+  padding-left: 18px;
+}
+
+.trend-chart-container {
+  width: 100%;
+  height: 185px;
+  position: relative;
+  margin: 10px 0 6px;
+}
+
+.trend-empty-state {
+  height: 185px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 0 24px;
+  gap: 8px;
+  border: 1px dashed rgba(255, 255, 255, 0.12);
+  border-radius: 12px;
+  margin: 10px 0;
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.trend-empty-state .empty-title {
+  margin: 0;
+  font-size: 13px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.trend-empty-state .empty-subtitle {
+  font-size: 11px;
+  color: var(--muted);
+  max-width: 320px;
+  line-height: 1.45;
+}
+
+.chart-tooltip {
+  background: rgba(10, 12, 20, 0.95);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  padding: 10px 14px;
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+  font-size: 12px;
+  min-width: 150px;
+}
+
+.chart-tooltip .tooltip-date {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--muted);
+  margin-bottom: 6px;
+  font-weight: 600;
+}
+
+.chart-tooltip .tooltip-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  margin-top: 3px;
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.chart-tooltip .tooltip-row strong {
+  color: #fff;
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 600;
+}
+
+.chart-tooltip .tooltip-row .risk-text {
+  color: var(--red);
+}
+
+.table-empty-row {
+  padding: 28px 0;
+  text-align: center;
+  color: var(--muted);
+  font-size: 12px;
+  border-top: 1px solid rgba(255, 255, 255, 0.09);
+}
+
+/* ── Password Input Visibility Toggle ── */
+.password-input-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.password-input-wrap input {
+  width: 100%;
+  padding-right: 44px !important;
+}
+
+.password-toggle-btn {
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: 0;
+  padding: 6px;
+  color: var(--muted);
+  cursor: pointer;
+  border-radius: 6px;
+  transition: color 0.15s ease, background-color 0.15s ease, transform 0.1s ease;
+  z-index: 2;
+}
+
+.password-toggle-btn:hover {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.password-toggle-btn:focus-visible {
+  outline: none;
+  color: var(--mint);
+  box-shadow: 0 0 0 2px rgba(115, 251, 211, 0.4);
+}
+
+.password-toggle-btn:active {
+  transform: translateY(-50%) scale(0.95);
+}
+
+/* ── Compact Dashboard Previews & Customer Category Filter ── */
+.dashboard-grid.lower .table-card {
+  display: flex;
+  flex-direction: column;
+  min-height: 380px;
+}
+
+.dashboard-grid.lower .data-table {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.view-all-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+  cursor: pointer;
+  transition: color 0.15s ease, transform 0.15s ease;
+  padding: 4px 8px;
+  border-radius: 6px;
+}
+
+.view-all-btn:hover {
+  color: var(--mint);
+  transform: translateX(2px);
+  background: rgba(115, 251, 211, 0.06);
+}
+
+.table-empty-row.compact-empty {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 45px 20px;
+  gap: 8px;
+  text-align: center;
+}
+
+.empty-icon-subtle {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background: rgba(115, 251, 211, 0.1);
+  color: var(--mint);
+  margin-bottom: 4px;
+}
+
+.empty-title {
+  margin: 0;
+  font-size: 13px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.88);
+}
+
+.empty-subtitle {
+  font-size: 11px;
+  color: var(--muted);
+  max-width: 280px;
+  line-height: 1.45;
+}
+
+.customer-filter-group {
+  display: inline-flex;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 10px;
+  padding: 3px;
+  gap: 3px;
+}
+
+.filter-tab {
+  background: transparent;
+  border: 0;
+  color: var(--muted);
+  padding: 6px 14px;
+  border-radius: 7px;
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.filter-tab:hover:not(.active) {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.filter-tab.active {
+  background: rgba(115, 251, 211, 0.15);
+  color: var(--mint);
+  font-weight: 600;
+  box-shadow: 0 0 0 1px rgba(115, 251, 211, 0.3);
+}
+
+.customer-count-badge {
+  font-size: 11px;
+  color: var(--muted);
+  white-space: nowrap;
+}
+
+/* ── Tactile Benchmark Control (Settings Page) ── */
+.benchmark-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.benchmark-display-card {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin: 24px 0 16px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.benchmark-value {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  margin: 0;
+}
+
+.benchmark-value strong {
+  font: 600 56px 'Space Grotesk', sans-serif;
+  letter-spacing: -0.06em;
+  color: #fff;
+  line-height: 1;
+}
+
+.benchmark-value span {
+  color: var(--muted);
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.benchmark-badge {
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 5px 12px;
+  border-radius: 999px;
+  border: 1px solid rgba(115, 251, 211, 0.3);
+  background: rgba(115, 251, 211, 0.1);
+  color: var(--mint);
+  white-space: nowrap;
+}
+
+.benchmark-badge[data-sensitivity="selective"] {
+  border-color: rgba(255, 107, 122, 0.35);
+  background: rgba(255, 107, 122, 0.12);
+  color: #ff9aa3;
+}
+
+.benchmark-badge[data-sensitivity="balanced"] {
+  border-color: rgba(64, 121, 255, 0.35);
+  background: rgba(64, 121, 255, 0.12);
+  color: #8bc8ff;
+}
+
+.benchmark-control-wrap {
+  margin: 0 0 20px;
+}
+
+.benchmark-stepper {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.stepper-btn {
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  color: #fff;
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  user-select: none;
+}
+
+.stepper-btn:hover:not(:disabled) {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: var(--mint);
+  color: var(--mint);
+  transform: translateY(-1px);
+}
+
+.stepper-btn:active:not(:disabled) {
+  transform: translateY(0) scale(0.96);
+}
+
+.stepper-btn:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+.segmented-slider-container {
+  position: relative;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 52px;
+}
+
+.segmented-track-bg {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 8px;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.segmented-track-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--blue), var(--mint));
+  border-radius: 4px;
+  transition: width 0.08s ease-out;
+  box-shadow: 0 0 12px rgba(115, 251, 211, 0.3);
+}
+
+.segmented-ticks {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 32px;
+  pointer-events: none;
+}
+
+.tick-mark {
+  position: absolute;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.tick-pip {
+  width: 2px;
+  height: 5px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 1px;
+}
+
+.tick-mark.active .tick-pip {
+  background: var(--mint);
+  box-shadow: 0 0 6px var(--mint);
+}
+
+.tick-label {
+  font-size: 10px;
+  font-family: 'Space Grotesk', sans-serif;
+  color: var(--muted);
+  font-weight: 500;
+}
+
+.tick-mark.active .tick-label {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.tactile-range-input {
+  position: relative;
+  z-index: 3;
+  width: 100%;
+  height: 28px;
+  background: transparent;
+  outline: none;
+  cursor: pointer;
+  -webkit-appearance: none;
+  appearance: none;
+  margin: 0;
+}
+
+.tactile-range-input::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: #ffffff;
+  border: 3px solid #070911;
+  box-shadow: 0 0 0 2px var(--mint), 0 4px 12px rgba(0, 0, 0, 0.5);
+  cursor: grab;
+  transition: transform 0.12s ease, box-shadow 0.15s ease;
+}
+
+.tactile-range-input::-webkit-slider-thumb:hover {
+  transform: scale(1.15);
+  box-shadow: 0 0 0 3px var(--mint), 0 0 16px rgba(115, 251, 211, 0.5);
+}
+
+.tactile-range-input::-webkit-slider-thumb:active {
+  cursor: grabbing;
+  transform: scale(1.05);
+}
+
+.tactile-range-input::-moz-range-thumb {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: #ffffff;
+  border: 3px solid #070911;
+  box-shadow: 0 0 0 2px var(--mint), 0 4px 12px rgba(0, 0, 0, 0.5);
+  cursor: grab;
+  transition: transform 0.12s ease, box-shadow 0.15s ease;
+}
+
+.tactile-range-input:focus-visible {
+  outline: none;
+}
+
+.tactile-range-input:focus-visible::-webkit-slider-thumb {
+  box-shadow: 0 0 0 4px var(--mint), 0 0 20px rgba(115, 251, 211, 0.8);
+}
+
+.benchmark-presets {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 28px 0 16px;
+}
+
+.preset-btn {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: var(--muted);
+  font-size: 11px;
+  padding: 5px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.preset-btn:hover {
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.25);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.preset-btn.active {
+  color: var(--mint);
+  border-color: rgba(115, 251, 211, 0.4);
+  background: rgba(115, 251, 211, 0.12);
+  font-weight: 600;
+}
+
+/* ── Theme Toggle Button ── */
+.theme-toggle-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  height: 38px;
+  width: 38px;
+  padding: 0;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid var(--line);
+  color: var(--muted);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  user-select: none;
+}
+
+.theme-toggle-btn:hover {
+  background: rgba(255, 255, 255, 0.12);
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.25);
+  transform: translateY(-1px);
+}
+
+.theme-toggle-btn:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 2px var(--mint);
+  color: var(--mint);
+}
+
+.theme-toggle-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.theme-toggle-btn:hover .theme-toggle-icon {
+  transform: rotate(20deg);
+}
+
+/* ══════════════════════════════════════════════════════════════════
+   LIGHT THEME SYSTEM (Google-Inspired Minimal White Interface)
+   ══════════════════════════════════════════════════════════════════ */
+
+/* ══════════════════════════════════════════════════════════════════
+   WORKSPACE LIGHT THEME SYSTEM (Scoped Strictly to Workspace Pages)
+   Applies exclusively to: Overview, Predict, Customers, Settings
+   ══════════════════════════════════════════════════════════════════ */
+
+.app-layout[data-theme="light"],
+[data-theme="light"] .app-layout {
+  --mint: #0d9488;
+  --blue: #2563eb;
+  --red: #dc2626;
+  --muted: #4b5563;
+  --glass: #ffffff;
+  --line: #e2e8f0;
+  color: #1f2937 !important;
+  background: #f6f8fa !important;
+  min-height: 100svh;
+}
+
+/* 1. Eliminate heavy cosmic & decorative animations strictly inside workspace */
+.app-layout[data-theme="light"] .waves-background,
+.app-layout[data-theme="light"] .waves-glow,
+[data-theme="light"] .app-layout .waves-background,
+[data-theme="light"] .app-layout .waves-glow {
+  display: none !important;
+  opacity: 0 !important;
+}
+
+/* 2. Workspace Surface Cards & Panels (Tactile, Crisp White, Subtle Separation) */
+.app-layout[data-theme="light"] .glass-panel,
+.app-layout[data-theme="light"] .chart-card,
+.app-layout[data-theme="light"] .trend-card,
+.app-layout[data-theme="light"] .table-card,
+.app-layout[data-theme="light"] .upload-card,
+.app-layout[data-theme="light"] .detail-card,
+.app-layout[data-theme="light"] .settings-grid > div,
+[data-theme="light"] .app-layout .glass-panel,
+[data-theme="light"] .app-layout .chart-card,
+[data-theme="light"] .app-layout .trend-card,
+[data-theme="light"] .app-layout .table-card,
+[data-theme="light"] .app-layout .upload-card,
+[data-theme="light"] .app-layout .detail-card,
+[data-theme="light"] .app-layout .settings-grid > div {
+  background: #ffffff !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  border: 1px solid #e2e8f0 !important;
+  border-radius: 16px !important;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05), 0 4px 12px rgba(0, 0, 0, 0.03) !important;
+  color: #1f2937 !important;
+}
+
+/* 3. Workspace Headings & Typography Scale */
+.app-layout[data-theme="light"] h1,
+.app-layout[data-theme="light"] h2,
+.app-layout[data-theme="light"] h3,
+.app-layout[data-theme="light"] strong,
+.app-layout[data-theme="light"] b,
+[data-theme="light"] .app-layout h1,
+[data-theme="light"] .app-layout h2,
+[data-theme="light"] .app-layout h3,
+[data-theme="light"] .app-layout strong,
+[data-theme="light"] .app-layout b {
+  color: #111827 !important;
+}
+
+.app-layout[data-theme="light"] p,
+[data-theme="light"] .app-layout p {
+  color: #374151 !important;
+}
+
+.app-layout[data-theme="light"] .page-header h1,
+[data-theme="light"] .app-layout .page-header h1 {
+  font-size: clamp(2.4rem, 4.5vw, 4.5rem) !important;
+  color: #111827 !important;
+  letter-spacing: -0.04em !important;
+}
+
+.app-layout[data-theme="light"] .page-description,
+[data-theme="light"] .app-layout .page-description {
+  font-size: 15px !important;
+  color: #4b5563 !important;
+  line-height: 1.6 !important;
+}
+
+.app-layout[data-theme="light"] .page-header:after,
+[data-theme="light"] .app-layout .page-header:after {
+  background: linear-gradient(90deg, #0d9488, #3b82f6, transparent) !important;
+  height: 2px !important;
+}
+
+.app-layout[data-theme="light"] .eyebrow,
+[data-theme="light"] .app-layout .eyebrow {
+  font-size: 12px !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.1em !important;
+  color: #0d9488 !important;
+  margin-bottom: 8px !important;
+  text-transform: uppercase !important;
+}
+
+.app-layout[data-theme="light"] .eyebrow:before,
+[data-theme="light"] .app-layout .eyebrow:before {
+  color: #14b8a6 !important;
+}
+
+.app-layout[data-theme="light"] .table-heading h2,
+.app-layout[data-theme="light"] .upload-card h2,
+.app-layout[data-theme="light"] .detail-card h2,
+.app-layout[data-theme="light"] .settings-grid h2,
+[data-theme="light"] .app-layout .table-heading h2,
+[data-theme="light"] .app-layout .upload-card h2,
+[data-theme="light"] .app-layout .detail-card h2,
+[data-theme="light"] .app-layout .settings-grid h2 {
+  font-size: 20px !important;
+  font-weight: 700 !important;
+  color: #111827 !important;
+}
+
+.app-layout[data-theme="light"] .chart-period,
+.app-layout[data-theme="light"] .chart-foot,
+[data-theme="light"] .app-layout .chart-period,
+[data-theme="light"] .app-layout .chart-foot {
+  font-size: 13px !important;
+  font-weight: 500 !important;
+  color: #4b5563 !important;
+}
+
+.app-layout[data-theme="light"] .chart-foot b,
+[data-theme="light"] .app-layout .chart-foot b {
+  color: #0d9488 !important;
+  font-weight: 700 !important;
+}
+
+/* 4. Workspace Summary KPI Cards */
+.app-layout[data-theme="light"] .summary-card,
+[data-theme="light"] .app-layout .summary-card {
+  background: #ffffff !important;
+  border: 1px solid #e2e8f0 !important;
+  border-top-width: 4px !important;
+  border-radius: 14px !important;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05), 0 2px 6px rgba(0, 0, 0, 0.02) !important;
+  padding: 22px 20px !important;
+}
+
+.app-layout[data-theme="light"] .summary-label,
+[data-theme="light"] .app-layout .summary-label {
+  font-size: 13px !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.04em !important;
+  color: #374151 !important;
+  text-transform: uppercase !important;
+}
+
+.app-layout[data-theme="light"] .summary-card strong,
+[data-theme="light"] .app-layout .summary-card strong {
+  font-size: 36px !important;
+  font-weight: 700 !important;
+  color: #111827 !important;
+  margin: 10px 0 6px !important;
+}
+
+.app-layout[data-theme="light"] .summary-card span,
+[data-theme="light"] .app-layout .summary-card span {
+  font-size: 13px !important;
+  font-weight: 500 !important;
+  color: #4b5563 !important;
+}
+
+.app-layout[data-theme="light"] .tone-mint,
+[data-theme="light"] .app-layout .tone-mint {
+  border-top-color: #0d9488 !important;
+}
+
+.app-layout[data-theme="light"] .tone-risk,
+[data-theme="light"] .app-layout .tone-risk {
+  border-top-color: #dc2626 !important;
+}
+
+.app-layout[data-theme="light"] .tone-saved,
+[data-theme="light"] .app-layout .tone-saved {
+  border-top-color: #2563eb !important;
+}
+
+.app-layout[data-theme="light"] .tone-blue,
+[data-theme="light"] .app-layout .tone-blue {
+  border-top-color: #0284c7 !important;
+}
+
+/* 5. Workspace Form Fields & Inputs */
+.app-layout[data-theme="light"] .form-label,
+[data-theme="light"] .app-layout .form-label {
+  font-size: 14px !important;
+  font-weight: 600 !important;
+  color: #1f2937 !important;
+}
+
+.app-layout[data-theme="light"] .form-label input,
+.app-layout[data-theme="light"] .search-field input,
+[data-theme="light"] .app-layout .form-label input,
+[data-theme="light"] .app-layout .search-field input {
+  background: #ffffff !important;
+  color: #111827 !important;
+  border: 1px solid #d1d5db !important;
+  font-size: 14px !important;
+  padding: 12px 14px !important;
+  border-radius: 9px !important;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03) !important;
+}
+
+.app-layout[data-theme="light"] .form-label input:focus,
+.app-layout[data-theme="light"] .search-field:focus-within,
+[data-theme="light"] .app-layout .form-label input:focus,
+[data-theme="light"] .app-layout .search-field:focus-within {
+  border-color: #0d9488 !important;
+  box-shadow: 0 0 0 3px rgba(13, 148, 136, 0.15) !important;
+}
+
+.app-layout[data-theme="light"] .search-field,
+[data-theme="light"] .app-layout .search-field {
+  background: #ffffff !important;
+  border: 1px solid #d1d5db !important;
+  color: #6b7280 !important;
+}
+
+/* 6. Workspace Buttons */
+.app-layout[data-theme="light"] .primary-button,
+[data-theme="light"] .app-layout .primary-button {
+  background: #0d9488 !important;
+  color: #ffffff !important;
+  font-size: 14px !important;
+  font-weight: 600 !important;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1), 0 2px 6px rgba(13, 148, 136, 0.15) !important;
+  border: 1px solid transparent !important;
+}
+
+.app-layout[data-theme="light"] .primary-button:hover,
+[data-theme="light"] .app-layout .primary-button:hover {
+  background: #0f766e !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15) !important;
+}
+
+.app-layout[data-theme="light"] .secondary-button,
+.app-layout[data-theme="light"] .quiet-button,
+[data-theme="light"] .app-layout .secondary-button,
+[data-theme="light"] .app-layout .quiet-button {
+  background: #ffffff !important;
+  border: 1px solid #d1d5db !important;
+  color: #374151 !important;
+  font-size: 13px !important;
+  font-weight: 500 !important;
+}
+
+.app-layout[data-theme="light"] .secondary-button:hover,
+.app-layout[data-theme="light"] .quiet-button:hover,
+[data-theme="light"] .app-layout .secondary-button:hover,
+[data-theme="light"] .app-layout .quiet-button:hover {
+  background: #f3f4f6 !important;
+  color: #111827 !important;
+  border-color: #9ca3af !important;
+}
+
+.app-layout[data-theme="light"] .view-all-btn,
+[data-theme="light"] .app-layout .view-all-btn {
+  color: #0d9488 !important;
+  font-weight: 600 !important;
+}
+
+.app-layout[data-theme="light"] .theme-toggle-btn,
+[data-theme="light"] .app-layout .theme-toggle-btn {
+  background: #ffffff !important;
+  border: 1px solid #cbd5e1 !important;
+  color: #4b5563 !important;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05) !important;
+}
+
+.app-layout[data-theme="light"] .theme-toggle-btn:hover,
+[data-theme="light"] .app-layout .theme-toggle-btn:hover {
+  background: #f1f5f9 !important;
+  color: #111827 !important;
+  border-color: #94a3b8 !important;
+}
+
+/* 7. Workspace Tables, Rows & Status Badges */
+.app-layout[data-theme="light"] .data-table,
+[data-theme="light"] .app-layout .data-table {
+  margin-top: 18px !important;
+}
+
+.app-layout[data-theme="light"] .data-table .table-head,
+[data-theme="light"] .app-layout .data-table .table-head {
+  font-size: 12px !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.06em !important;
+  color: #4b5563 !important;
+  text-transform: uppercase !important;
+  border: 0 !important;
+  border-bottom: 2px solid #e2e8f0 !important;
+  padding-bottom: 10px !important;
+}
+
+.app-layout[data-theme="light"] .data-table .table-row,
+[data-theme="light"] .app-layout .data-table .table-row {
+  border-top: 1px solid #edf2f7 !important;
+  color: #1f2937 !important;
+  font-size: 14px !important;
+  padding: 13px 4px !important;
+  transition: background 0.15s ease !important;
+}
+
+.app-layout[data-theme="light"] .data-table .table-row:hover,
+[data-theme="light"] .app-layout .data-table .table-row:hover {
+  background: #f8fafc !important;
+}
+
+.app-layout[data-theme="light"] .table-row b,
+[data-theme="light"] .app-layout .table-row b {
+  font-size: 14px !important;
+  font-weight: 600 !important;
+  color: #111827 !important;
+}
+
+.app-layout[data-theme="light"] .table-row small,
+[data-theme="light"] .app-layout .table-row small {
+  font-size: 12px !important;
+  font-weight: 500 !important;
+  color: #6b7280 !important;
+}
+
+.app-layout[data-theme="light"] .score-value,
+[data-theme="light"] .app-layout .score-value {
+  font-size: 14px !important;
+  font-weight: 700 !important;
+  color: #111827 !important;
+}
+
+.app-layout[data-theme="light"] .status-badge,
+[data-theme="light"] .app-layout .status-badge {
+  font-size: 12px !important;
+  font-weight: 600 !important;
+  padding: 4px 10px !important;
+  border-radius: 999px !important;
+  border: 1px solid !important;
+}
+
+.app-layout[data-theme="light"] .status-badge.risk,
+[data-theme="light"] .app-layout .status-badge.risk {
+  background: #fef2f2 !important;
+  color: #b91c1c !important;
+  border-color: #fca5a5 !important;
+}
+
+.app-layout[data-theme="light"] .status-badge.saved,
+[data-theme="light"] .app-layout .status-badge.saved {
+  background: #f0fdf4 !important;
+  color: #15803d !important;
+  border-color: #86efac !important;
+}
+
+.app-layout[data-theme="light"] .status-badge.healthy,
+[data-theme="light"] .app-layout .status-badge.healthy {
+  background: #eff6ff !important;
+  color: #1d4ed8 !important;
+  border-color: #bfdbfe !important;
+}
+
+.app-layout[data-theme="light"] .table-empty-row,
+[data-theme="light"] .app-layout .table-empty-row {
+  color: #4b5563 !important;
+  border-top-color: #edf2f7 !important;
+}
+
+.app-layout[data-theme="light"] .table-empty-row .empty-title,
+[data-theme="light"] .app-layout .table-empty-row .empty-title {
+  color: #111827 !important;
+  font-size: 14px !important;
+  font-weight: 600 !important;
+}
+
+.app-layout[data-theme="light"] .table-empty-row .empty-subtitle,
+[data-theme="light"] .app-layout .table-empty-row .empty-subtitle {
+  color: #6b7280 !important;
+  font-size: 12px !important;
+}
+
+/* 8. Workspace Navigation Dock & Profile Menu */
+.app-layout[data-theme="light"] .dock,
+[data-theme="light"] .app-layout .dock {
+  background: rgba(255, 255, 255, 0.96) !important;
+  border: 1px solid #cbd5e1 !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08), 0 1px 3px rgba(0, 0, 0, 0.04) !important;
+  backdrop-filter: blur(12px) !important;
+  padding: 6px !important;
+}
+
+.app-layout[data-theme="light"] .dock-item,
+[data-theme="light"] .app-layout .dock-item {
+  font-size: 14px !important;
+  font-weight: 500 !important;
+  color: #4b5563 !important;
+  padding: 10px 16px !important;
+  border-radius: 10px !important;
+}
+
+.app-layout[data-theme="light"] .dock-item:hover,
+[data-theme="light"] .app-layout .dock-item:hover {
+  color: #111827 !important;
+  background: #f1f5f9 !important;
+}
+
+.app-layout[data-theme="light"] .dock-item.active,
+[data-theme="light"] .app-layout .dock-item.active {
+  color: #0d9488 !important;
+  background: #e6f4ea !important;
+  font-weight: 600 !important;
+}
+
+.app-layout[data-theme="light"] .profile-menu,
+[data-theme="light"] .app-layout .profile-menu {
+  background: #ffffff !important;
+  border: 1px solid #cbd5e1 !important;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06) !important;
+}
+
+.app-layout[data-theme="light"] .profile-copy span,
+[data-theme="light"] .app-layout .profile-copy span {
+  font-size: 13px !important;
+  font-weight: 600 !important;
+  color: #111827 !important;
+}
+
+.app-layout[data-theme="light"] .profile-copy small,
+[data-theme="light"] .app-layout .profile-copy small {
+  font-size: 12px !important;
+  color: #6b7280 !important;
+}
+
+.app-layout[data-theme="light"] .profile-avatar,
+[data-theme="light"] .app-layout .profile-avatar {
+  background: #e6f4ea !important;
+  color: #0d9488 !important;
+}
+
+.app-layout[data-theme="light"] .profile-menu button,
+[data-theme="light"] .app-layout .profile-menu button {
+  color: #6b7280 !important;
+}
+
+.app-layout[data-theme="light"] .profile-menu button:hover,
+[data-theme="light"] .app-layout .profile-menu button:hover {
+  color: #dc2626 !important;
+}
+
+/* 9. Workspace Donut & Recharts Trend Visuals */
+.app-layout[data-theme="light"] .donut:after,
+[data-theme="light"] .app-layout .donut:after {
+  background: #ffffff !important;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.06) !important;
+}
+
+.app-layout[data-theme="light"] .donut strong,
+[data-theme="light"] .app-layout .donut strong {
+  font-size: 34px !important;
+  font-weight: 700 !important;
+  color: #111827 !important;
+}
+
+.app-layout[data-theme="light"] .donut span,
+[data-theme="light"] .app-layout .donut span {
+  font-size: 12px !important;
+  font-weight: 500 !important;
+  color: #4b5563 !important;
+}
+
+.app-layout[data-theme="light"] .legend,
+[data-theme="light"] .app-layout .legend {
+  font-size: 14px !important;
+  font-weight: 500 !important;
+  color: #374151 !important;
+  gap: 14px !important;
+}
+
+.app-layout[data-theme="light"] .legend span,
+[data-theme="light"] .app-layout .legend span {
+  color: #374151 !important;
+}
+
+.app-layout[data-theme="light"] .legend b,
+[data-theme="light"] .app-layout .legend b {
+  font-size: 14px !important;
+  font-weight: 700 !important;
+  color: #111827 !important;
+}
+
+/* Visible SVG Recharts lines and ticks strictly inside workspace */
+.app-layout[data-theme="light"] .recharts-cartesian-grid line,
+[data-theme="light"] .app-layout .recharts-cartesian-grid line {
+  stroke: #e2e8f0 !important;
+  stroke-width: 1px !important;
+  stroke-dasharray: 4 4 !important;
+}
+
+.app-layout[data-theme="light"] .recharts-cartesian-axis-line,
+[data-theme="light"] .app-layout .recharts-cartesian-axis-line {
+  stroke: #cbd5e1 !important;
+  stroke-width: 1.5px !important;
+}
+
+.app-layout[data-theme="light"] .recharts-cartesian-axis-tick text,
+[data-theme="light"] .app-layout .recharts-cartesian-axis-tick text {
+  fill: #4b5563 !important;
+  font-size: 12px !important;
+  font-weight: 500 !important;
+}
+
+.app-layout[data-theme="light"] .recharts-area-dots circle,
+[data-theme="light"] .app-layout .recharts-area-dots circle {
+  fill: #0d9488 !important;
+  stroke: #ffffff !important;
+  stroke-width: 2px !important;
+}
+
+.app-layout[data-theme="light"] .trend-empty-state,
+[data-theme="light"] .app-layout .trend-empty-state {
+  border: 1px dashed #cbd5e1 !important;
+  background: #f8fafc !important;
+  border-radius: 12px !important;
+  padding: 24px !important;
+}
+
+.app-layout[data-theme="light"] .trend-empty-state .empty-title,
+[data-theme="light"] .app-layout .trend-empty-state .empty-title {
+  font-size: 15px !important;
+  font-weight: 600 !important;
+  color: #111827 !important;
+}
+
+.app-layout[data-theme="light"] .trend-empty-state .empty-subtitle,
+[data-theme="light"] .app-layout .trend-empty-state .empty-subtitle {
+  font-size: 13px !important;
+  color: #4b5563 !important;
+}
+
+.app-layout[data-theme="light"] .chart-tooltip,
+[data-theme="light"] .app-layout .chart-tooltip {
+  background: #ffffff !important;
+  border: 1px solid #cbd5e1 !important;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1) !important;
+  border-radius: 10px !important;
+  padding: 10px 14px !important;
+  color: #111827 !important;
+  font-size: 13px !important;
+}
+
+.app-layout[data-theme="light"] .chart-tooltip .tooltip-date,
+[data-theme="light"] .app-layout .chart-tooltip .tooltip-date {
+  font-size: 12px !important;
+  font-weight: 600 !important;
+  color: #6b7280 !important;
+  border-bottom: 1px solid #edf2f7 !important;
+  padding-bottom: 4px !important;
+  margin-bottom: 6px !important;
+}
+
+.app-layout[data-theme="light"] .chart-tooltip .tooltip-row,
+[data-theme="light"] .app-layout .chart-tooltip .tooltip-row {
+  display: flex !important;
+  justify-content: space-between !important;
+  gap: 12px !important;
+  color: #374151 !important;
+  margin-top: 3px !important;
+}
+
+.app-layout[data-theme="light"] .chart-tooltip .tooltip-row strong,
+[data-theme="light"] .app-layout .chart-tooltip .tooltip-row strong {
+  color: #111827 !important;
+  font-weight: 700 !important;
+}
+
+.app-layout[data-theme="light"] .chart-tooltip .tooltip-row strong.risk-text,
+[data-theme="light"] .app-layout .chart-tooltip .tooltip-row strong.risk-text {
+  color: #dc2626 !important;
+}
+
+/* 10. Workspace Benchmark Control */
+.app-layout[data-theme="light"] .benchmark-display-card,
+[data-theme="light"] .app-layout .benchmark-display-card {
+  border-bottom: 1px solid #e2e8f0 !important;
+  padding-bottom: 24px !important;
+}
+
+.app-layout[data-theme="light"] .benchmark-value strong,
+[data-theme="light"] .app-layout .benchmark-value strong {
+  font-size: 64px !important;
+  font-weight: 700 !important;
+  color: #111827 !important;
+}
+
+.app-layout[data-theme="light"] .benchmark-value span,
+[data-theme="light"] .app-layout .benchmark-value span {
+  font-size: 20px !important;
+  color: #6b7280 !important;
+}
+
+.app-layout[data-theme="light"] .benchmark-badge,
+[data-theme="light"] .app-layout .benchmark-badge {
+  font-size: 12px !important;
+  font-weight: 600 !important;
+  border-radius: 999px !important;
+  padding: 4px 12px !important;
+}
+
+.app-layout[data-theme="light"] .segmented-track-bg,
+[data-theme="light"] .app-layout .segmented-track-bg {
+  background: #e2e8f0 !important;
+  border-color: #cbd5e1 !important;
+}
+
+.app-layout[data-theme="light"] .segmented-track-fill,
+[data-theme="light"] .app-layout .segmented-track-fill {
+  background: linear-gradient(90deg, #2563eb, #0d9488) !important;
+}
+
+.app-layout[data-theme="light"] .tick-pip,
+[data-theme="light"] .app-layout .tick-pip {
+  background: #cbd5e1 !important;
+}
+
+.app-layout[data-theme="light"] .tick-mark.active .tick-pip,
+[data-theme="light"] .app-layout .tick-mark.active .tick-pip {
+  background: #0d9488 !important;
+  box-shadow: none !important;
+}
+
+.app-layout[data-theme="light"] .tick-label,
+[data-theme="light"] .app-layout .tick-label {
+  font-size: 12px !important;
+  font-weight: 600 !important;
+  color: #4b5563 !important;
+}
+
+.app-layout[data-theme="light"] .tick-mark.active .tick-label,
+[data-theme="light"] .app-layout .tick-mark.active .tick-label {
+  color: #111827 !important;
+}
+
+.app-layout[data-theme="light"] .stepper-btn,
+[data-theme="light"] .app-layout .stepper-btn {
+  background: #ffffff !important;
+  border: 1px solid #cbd5e1 !important;
+  color: #374151 !important;
+}
+
+.app-layout[data-theme="light"] .stepper-btn:hover:not(:disabled),
+[data-theme="light"] .app-layout .stepper-btn:hover:not(:disabled) {
+  background: #f1f5f9 !important;
+  color: #0d9488 !important;
+  border-color: #0d9488 !important;
+}
+
+.app-layout[data-theme="light"] .tactile-range-input::-webkit-slider-thumb,
+[data-theme="light"] .app-layout .tactile-range-input::-webkit-slider-thumb {
+  background: #ffffff !important;
+  border: 3px solid #0d9488 !important;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2) !important;
+}
+
+.app-layout[data-theme="light"] .preset-btn,
+[data-theme="light"] .app-layout .preset-btn {
+  background: #ffffff !important;
+  border: 1px solid #cbd5e1 !important;
+  color: #4b5563 !important;
+  font-size: 13px !important;
+  font-weight: 600 !important;
+}
+
+.app-layout[data-theme="light"] .preset-btn:hover,
+[data-theme="light"] .app-layout .preset-btn:hover {
+  background: #f1f5f9 !important;
+  color: #111827 !important;
+}
+
+.app-layout[data-theme="light"] .preset-btn.active,
+[data-theme="light"] .app-layout .preset-btn.active {
+  background: #e6f4ea !important;
+  border-color: #0d9488 !important;
+  color: #0d9488 !important;
+}
+
+/* 11. Workspace Customer Category Filter Tabs */
+.app-layout[data-theme="light"] .customer-filter-group,
+[data-theme="light"] .app-layout .customer-filter-group {
+  background: #f1f5f9 !important;
+  border: 1px solid #cbd5e1 !important;
+  padding: 3px !important;
+  border-radius: 10px !important;
+}
+
+.app-layout[data-theme="light"] .filter-tab,
+[data-theme="light"] .app-layout .filter-tab {
+  font-size: 13px !important;
+  font-weight: 500 !important;
+  color: #4b5563 !important;
+  padding: 6px 14px !important;
+  border-radius: 7px !important;
+}
+
+.app-layout[data-theme="light"] .filter-tab:hover:not(.active),
+[data-theme="light"] .app-layout .filter-tab:hover:not(.active) {
+  color: #111827 !important;
+  background: #e2e8f0 !important;
+}
+
+.app-layout[data-theme="light"] .filter-tab.active,
+[data-theme="light"] .app-layout .filter-tab.active {
+  background: #ffffff !important;
+  color: #0d9488 !important;
+  font-weight: 600 !important;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08) !important;
+}
+
+.app-layout[data-theme="light"] .customer-toolbar > span,
+[data-theme="light"] .app-layout .customer-toolbar > span {
+  font-size: 13px !important;
+  font-weight: 500 !important;
+  color: #4b5563 !important;
+}
+
+.app-layout[data-theme="light"] .customer-count-badge,
+[data-theme="light"] .app-layout .customer-count-badge {
+  font-size: 12px !important;
+  font-weight: 600 !important;
+  color: #4b5563 !important;
+}
+
+/* 12. Workspace Customer Detail Panel */
+.app-layout[data-theme="light"] .detail-content h2,
+[data-theme="light"] .app-layout .detail-content h2 {
+  font-size: 22px !important;
+  font-weight: 700 !important;
+  color: #111827 !important;
+}
+
+.app-layout[data-theme="light"] .detail-content p,
+[data-theme="light"] .app-layout .detail-content p {
+  font-size: 14px !important;
+  color: #4b5563 !important;
+}
+
+.app-layout[data-theme="light"] .history-list div,
+[data-theme="light"] .app-layout .history-list div {
+  border-bottom: 1px solid #edf2f7 !important;
+  padding: 10px 0 !important;
+}
+
+.app-layout[data-theme="light"] .history-list span,
+[data-theme="light"] .app-layout .history-list span {
+  font-size: 13px !important;
+  color: #4b5563 !important;
+}
+
+.app-layout[data-theme="light"] .history-list strong,
+[data-theme="light"] .app-layout .history-list strong {
+  font-size: 14px !important;
+  font-weight: 700 !important;
+  color: #111827 !important;
+}
+
+.app-layout[data-theme="light"] .detail-empty,
+[data-theme="light"] .app-layout .detail-empty {
+  color: #4b5563 !important;
+}
+
+.app-layout[data-theme="light"] .detail-empty h2,
+[data-theme="light"] .app-layout .detail-empty h2 {
+  color: #111827 !important;
+  font-size: 20px !important;
+}
+
+.app-layout[data-theme="light"] .detail-empty p,
+[data-theme="light"] .app-layout .detail-empty p {
+  font-size: 14px !important;
+  color: #6b7280 !important;
+}
+
+/* 13. Workspace Predict Upload & Results */
+.app-layout[data-theme="light"] .upload-card,
+[data-theme="light"] .app-layout .upload-card {
+  border-color: #cbd5e1 !important;
+  background: #ffffff !important;
+}
+
+.app-layout[data-theme="light"] .upload-icon,
+.app-layout[data-theme="light"] .empty-mark,
+[data-theme="light"] .app-layout .upload-icon,
+[data-theme="light"] .app-layout .empty-mark {
+  background: #e6f4ea !important;
+  color: #0d9488 !important;
+}
+
+.app-layout[data-theme="light"] .upload-note,
+[data-theme="light"] .app-layout .upload-note {
+  font-size: 12px !important;
+  color: #6b7280 !important;
+}
+
+.app-layout[data-theme="light"] .empty-state,
+[data-theme="light"] .app-layout .empty-state {
+  border: 1px dashed #cbd5e1 !important;
+  background: #ffffff !important;
+  border-radius: 16px !important;
+}
+
+.app-layout[data-theme="light"] .empty-state h2,
+[data-theme="light"] .app-layout .empty-state h2 {
+  font-size: 22px !important;
+  font-weight: 700 !important;
+  color: #111827 !important;
+}
+
+.app-layout[data-theme="light"] .empty-state p,
+[data-theme="light"] .app-layout .empty-state p {
+  font-size: 14px !important;
+  color: #4b5563 !important;
+}
+
+.app-layout[data-theme="light"] .result-banner,
+[data-theme="light"] .app-layout .result-banner {
+  background: #f0fdf4 !important;
+  border: 1px solid #86efac !important;
+  border-radius: 14px !important;
+  padding: 20px 24px !important;
+}
+
+.app-layout[data-theme="light"] .result-banner h2,
+[data-theme="light"] .app-layout .result-banner h2 {
+  font-size: 20px !important;
+  font-weight: 700 !important;
+  color: #15803d !important;
+}
+
+.app-layout[data-theme="light"] .result-banner p,
+[data-theme="light"] .app-layout .result-banner p {
+  font-size: 14px !important;
+  color: #374151 !important;
+}
+
+
+
+
+
+

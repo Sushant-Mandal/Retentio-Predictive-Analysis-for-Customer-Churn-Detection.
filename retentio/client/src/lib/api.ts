@@ -101,9 +101,9 @@ export const customersApi = {
   saved: (): Promise<CustomerRow[]> =>
     client.get<{ customers: CustomerRow[] }>('/customers/saved').then((r) => r.data.customers),
 
-  search: (q: string): Promise<CustomerRow[]> =>
+  search: (q: string, status?: string): Promise<CustomerRow[]> =>
     client
-      .get<{ customers: CustomerRow[] }>('/customers/search', { params: { q } })
+      .get<{ customers: CustomerRow[] }>('/customers/search', { params: { q, status } })
       .then((r) => r.data.customers),
 
   detail: (customerId: string): Promise<CustomerDetail> =>

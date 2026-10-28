@@ -1,55 +1,53 @@
-import React, { createContext, useContext, useEffect, useState } from "react";
+import { createContext, useContext, useEffect, useState, type ReactNode } from 'react';
 
-type Theme = "light" | "dark";
+export type Theme = 'dark' | 'light';
 
-interface ThemeContextType {
+export const THEME_KEY = 'retentio_theme';
+
+interface ThemeContextValue {
   theme: Theme;
-  toggleTheme?: () => void;
-  switchable: boolean;
+  toggleTheme: () => void;
+  setTheme: (t: Theme) => void;
 }
 
-const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
+const ThemeContext = createContext<ThemeContextValue | null>(null);
 
-interface ThemeProviderProps {
-  children: React.ReactNode;
-  defaultTheme?: Theme;
-  switchable?: boolean;
-}
-
-export function ThemeProvider({
-  children,
-  defaultTheme = "light",
-  switchable = false,
-}: ThemeProviderProps) {
-  const [theme, setTheme] = useState<Theme>(() => {
-    if (switchable) {
-      const stored = localStorage.getItem("theme");
-      return (stored as Theme) || defaultTheme;
+export function ThemeProvider({ children }: { children: ReactNode }) {
+  const [theme, setThemeState] = useState<Theme>(() => {
+    if (typeof window !== 'undefined') {
+      const saved = localStorage.getItem(THEME_KEY);
+      if (saved === 'light' || saved === 'dark') return saved;
     }
-    return defaultTheme;
+    return 'dark';
   });
 
   useEffect(() => {
-    const root = document.documentElement;
-    if (theme === "dark") {
-      root.classList.add("dark");
-    } else {
-      root.classList.remove("dark");
-    }
-
-    if (switchable) {
-      localStorage.setItem("theme", theme);
-    }
-  }, [theme, switchable]);
-
-  const toggleTheme = switchable
-    ? () => {
-        setTheme(prev => (prev === "light" ? "dark" : "light"));
+    localStorage.setItem(THEME_KEY, theme);
+    if (typeof window !== 'undefined') {
+      const isPublicOrLanding = window.location.pathname === '/' || window.location.pathname === '/login' || window.location.pathname === '/signup';
+      const root = document.documentElement;
+      if (isPublicOrLanding) {
+        root.setAttribute('data-theme', 'dark');
+        root.classList.remove('theme-light');
+        root.classList.add('theme-dark');
+      } else {
+        root.setAttribute('data-theme', theme);
+        root.classList.remove('theme-dark', 'theme-light');
+        root.classList.add(`theme-${theme}`);
       }
-    : undefined;
+    }
+  }, [theme]);
+
+  const setTheme = (t: Theme) => {
+    setThemeState(t);
+  };
+
+  const toggleTheme = () => {
+    setThemeState((prev) => (prev === 'dark' ? 'light' : 'dark'));
+  };
 
   return (
-    <ThemeContext.Provider value={{ theme, toggleTheme, switchable }}>
+    <ThemeContext.Provider value={{ theme, toggleTheme, setTheme }}>
       {children}
     </ThemeContext.Provider>
   );
@@ -58,7 +56,7 @@ export function ThemeProvider({
 export function useTheme() {
   const context = useContext(ThemeContext);
   if (!context) {
-    throw new Error("useTheme must be used within ThemeProvider");
+    throw new Error('useTheme must be used within a ThemeProvider');
   }
   return context;
 }

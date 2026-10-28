@@ -8,6 +8,7 @@
 import { Route, Switch, Redirect } from 'wouter';
 
 import { AuthProvider, useAuth } from '@/contexts/AuthContext';
+import { ThemeProvider } from '@/contexts/ThemeContext';
 
 import {
     AuthenticatedLayout,
@@ -89,8 +90,11 @@ function Router() {
 
 export default function App() {
     return (
-        <AuthProvider>
-            <Router />
-        </AuthProvider>
+        <ThemeProvider>
+            <AuthProvider>
+                <Router />
+            </AuthProvider>
+        </ThemeProvider>
     );
 }
+
